@@ -1,0 +1,13 @@
+build/**
+.gradle/**
+lib/**
+gradle/**
+
+!.mvn/wrapper/maven-wrapper.jar
+!gradle-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
