@@ -2,13 +2,11 @@ package com.techexpo.menu.entree;
 
 import com.techexpo.menu.MenuItem;
 
-import java.math.BigDecimal;
-
 public class ChickenNuggets extends MenuItem {
 
     public ChickenNuggets() {
         super.name = "Chick-fil-A Nuggets";
-        super.price = BigDecimal.valueOf(4.45);
+        super.price = 4.45;
         super.calories = 260;
         super.carbs = 9;
         super.fat = 12;

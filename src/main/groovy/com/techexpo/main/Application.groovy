@@ -1,4 +1,4 @@
-package com.techexpo
+package com.techexpo.main
 
 import com.techexpo.menu.drink.SweetTea
 import com.techexpo.menu.entree.ChickenSandwich
@@ -9,7 +9,7 @@ import com.techexpo.order.Customer
 class Application {
 
     public static void main(String[] args) {
-        Customer customer = new Customer("Jamie Dimon", 60);
+        Customer customer = new Customer("Jamie Dimon");
         MenuItem chickenSandwich = new ChickenSandwich();
         MenuItem sweetTea = new SweetTea();
         MenuItem fries = new Fries();

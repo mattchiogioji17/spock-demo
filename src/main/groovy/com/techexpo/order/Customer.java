@@ -2,18 +2,13 @@ package com.techexpo.order;
 
 import com.techexpo.menu.MenuItem;
 
-import java.math.BigDecimal;
-
 public class Customer {
 
     private String name;
-    private int age;
-
     private Order order;
 
-    public Customer(String name, int age) {
+    public Customer(String name) {
         this.name = name;
-        this.age = age;
         this.order = new Order();
     }
 
@@ -25,12 +20,8 @@ public class Customer {
         order.removeItem(menuItem);
     }
 
-    public BigDecimal getOrderTotal() {
-        return null;
-    }
-
-    public void printNutritionFacts() {
-
+    public Double getOrderTotal() {
+        return order.getCost();
     }
 
     public String getName() {
@@ -39,14 +30,6 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public Order getOrder() {

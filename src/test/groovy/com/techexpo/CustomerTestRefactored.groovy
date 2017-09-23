@@ -6,21 +6,24 @@ import com.techexpo.order.Order
 import groovy.util.logging.Slf4j
 import spock.lang.Specification
 
-
-/**
- * Use this test class to demonstrate mocking
- * Don't create setup method at first
- */
 @Slf4j
-class CustomerTest extends Specification {
+class CustomerTestRefactored extends Specification {
+
+    public static final String CUSTOMER_NAME = "Jamie Dimon"
+
+    Customer customer
+    Order order
+    ChickenSandwich chickenSandwich
+
+    void setup() {
+        customer = new Customer(CUSTOMER_NAME)
+        order = Mock()
+        customer.setOrder(order)
+//        customer.setOrder(Mock(Order.class))
+        chickenSandwich = new ChickenSandwich()
+    }
 
     def "Should add item to order"() {
-        given: "A Customer"
-            Customer customer = new Customer("Jamie Dimon")
-            Order order = Mock()
-            customer.setOrder(order)
-            ChickenSandwich chickenSandwich = new ChickenSandwich()
-
         when: "A Customer adds and item to his order"
             customer.addItem(chickenSandwich)
 
@@ -29,12 +32,6 @@ class CustomerTest extends Specification {
     }
 
     def "Should remove item from order"() {
-        given: "A Customer"
-            Customer customer = new Customer("Jamie Dimon")
-            Order order = Mock()
-            customer.setOrder(order)
-            ChickenSandwich chickenSandwich = new ChickenSandwich()
-
         when: "A Customer adds and item to his order"
             customer.removeItem(chickenSandwich)
 
@@ -43,11 +40,6 @@ class CustomerTest extends Specification {
     }
 
     def "Should return cost of order"() {
-        given: "A Customer has an order with 1 item"
-            Customer customer = new Customer("Jamie Dimon")
-            Order order = Mock()
-            customer.setOrder(order)
-
         when: "A Customer requests the price of his/her order"
             customer.getOrderTotal()
 

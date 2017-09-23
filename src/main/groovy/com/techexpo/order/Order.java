@@ -2,27 +2,26 @@ package com.techexpo.order;
 
 import com.techexpo.menu.MenuItem;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
 
     private List<MenuItem> menuItems;
-    private BigDecimal cost;
+    private Double cost;
 
     public Order() {
         this.menuItems = new ArrayList<>();
-        cost = BigDecimal.valueOf(0);
+        cost = 0.00;
     }
 
     public void printOrder() {
         // insert code to print current order to SysOut
         System.out.println("\n-------------  Current Order -------------\n");
         System.out.println("Menu Items:");
-        menuItems.forEach(menuItem -> {
-            System.out.println("\t>> " + menuItem.getName());
-        });
+        menuItems.forEach(menuItem ->
+            System.out.println("\t>> " + menuItem.getName())
+        );
         System.out.println("\nOrder Total: " + getCost());
 
         System.out.println("\n-------------  End of Order -------------");
@@ -41,9 +40,12 @@ public class Order {
         return menuItems.remove(menuItem);
     }
 
-    public BigDecimal getCost() {
+    public Double getCost() {
+        if (menuItems.isEmpty()) {
+            return 0.00;
+        }
         menuItems.forEach(menuItem ->
-            cost = cost.add(menuItem.getPrice())
+            cost += menuItem.getPrice()
         );
         return cost;
     }

@@ -56,6 +56,20 @@ class OrderTest extends Specification {
             notThrown(RuntimeException)
     }
 
+    // This test displays thrown()
+    // Use TDD
+    def "Should throw exception when order has no items and attempt to remove item"() {
+        given: "There is an order with 0 items"
+            Order order = new Order()
+            ChickenSandwich chickenSandwich = new ChickenSandwich()
+
+        when: "An attempt is made to remove an item from the order"
+            boolean success = order.removeItem(chickenSandwich)
+
+        then: "An exception will be thrown"
+            success == Boolean.FALSE
+            thrown(RuntimeException)
+    }
 
 
 }

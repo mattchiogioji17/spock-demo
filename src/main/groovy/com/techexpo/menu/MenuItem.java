@@ -1,7 +1,5 @@
 package com.techexpo.menu;
 
-import java.math.BigDecimal;
-
 public abstract class MenuItem {
 
     public String name;
@@ -12,7 +10,7 @@ public abstract class MenuItem {
     public int sugar;
     public int protein;
 
-    public BigDecimal price;
+    public Double price;
 
     public String getName() {
         return name;
@@ -34,7 +32,7 @@ public abstract class MenuItem {
         return sugar;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
