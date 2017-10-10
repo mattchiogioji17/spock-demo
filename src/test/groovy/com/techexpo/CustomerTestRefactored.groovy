@@ -19,7 +19,6 @@ class CustomerTestRefactored extends Specification {
         customer = new Customer(CUSTOMER_NAME)
         order = Mock()
         customer.setOrder(order)
-//        customer.setOrder(Mock(Order.class))
         chickenSandwich = new ChickenSandwich()
     }
 

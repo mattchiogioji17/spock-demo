@@ -15,23 +15,9 @@ public class Order {
         cost = 0.00;
     }
 
-    public void printOrder() {
-        // insert code to print current order to SysOut
-        System.out.println("\n-------------  Current Order -------------\n");
-        System.out.println("Menu Items:");
-        menuItems.forEach(menuItem ->
-            System.out.println("\t>> " + menuItem.getName())
-        );
-        System.out.println("\nOrder Total: " + getCost());
-
-        System.out.println("\n-------------  End of Order -------------");
-
-    }
-
     public boolean addItem(MenuItem menuItem){
         return menuItems.add(menuItem);
     }
-
 
     public boolean removeItem(MenuItem menuItem) {
         if (menuItems.size() == 0) {
@@ -48,6 +34,19 @@ public class Order {
             cost += menuItem.getPrice()
         );
         return cost;
+    }
+
+    public void printOrder() {
+        // insert code to print current order to SysOut
+        System.out.println("\n-------------  Current Order -------------\n");
+        System.out.println("Menu Items:");
+        menuItems.forEach(menuItem ->
+                System.out.println("\t>> " + menuItem.getName())
+        );
+        System.out.println("\nOrder Total: " + getCost());
+
+        System.out.println("\n-------------  End of Order -------------");
+
     }
 
     public List<MenuItem> getMenuItems() {

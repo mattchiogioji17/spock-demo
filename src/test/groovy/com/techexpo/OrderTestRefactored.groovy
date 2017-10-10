@@ -13,6 +13,7 @@ class OrderTestRefactored extends Specification {
 
     @Shared
     Order order
+
     ChickenSandwich chickenSandwich
 
     def setupSpec() {

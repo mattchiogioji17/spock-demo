@@ -3,16 +3,14 @@ package com.techexpo
 import com.techexpo.menu.entree.ChickenSandwich
 import com.techexpo.order.Customer
 import com.techexpo.order.Order
+import com.techexpo.util.Integration
 import groovy.util.logging.Slf4j
 import spock.lang.Specification
 
-
-/**
- * Use this test class to demonstrate mocking
- * Don't create setup method at first
- */
+@Integration
 @Slf4j
 class CustomerTest extends Specification {
+
 
     def "Should add item to order"() {
         given: "A Customer"
@@ -43,7 +41,7 @@ class CustomerTest extends Specification {
     }
 
     def "Should return cost of order"() {
-        given: "A Customer has an order with 1 item"
+        given: "A Customer has an order with 0 items"
             Customer customer = new Customer("Jamie Dimon")
             Order order = Mock()
             customer.setOrder(order)
